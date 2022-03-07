@@ -5,12 +5,11 @@ import { AiOutlineHeart, AiFillHeart} from 'react-icons/ai'
 import { IoIosStarOutline, IoIosStar } from 'react-icons/io'
 import { MdArrowRightAlt, MdNavigateNext, MdNavigateBefore} from 'react-icons/md'
 
-function Card({ title, year, size, priceDiscount, rating, newOrOld, numReview, price, colors, type, brand, imageUrl, body }) {
+function Card({ title, year, size, priceDiscount, rating, newOrOld, numReview, price, colors, type, brand, images, body }) {
     //da fare lo slider delle immagini
 
     const [heartClicked, setHeartClicked] = useState(false);
     const [indexImage, setIndexImage] = useState(0);
-    const [images, setImages] = useState(imageUrl);
 
     const nextImage = () => {
         if(images[indexImage+1]!=null)
@@ -42,9 +41,14 @@ function Card({ title, year, size, priceDiscount, rating, newOrOld, numReview, p
                 </div>)}
             </div>
             <div className='image-container'>
-                <MdNavigateBefore onClick={prevImage}/>
                 <img src={images[indexImage]} alt='' className='image' />
-                <MdNavigateNext onClick={nextImage}/>
+            </div>
+            <div className='btn-images'>
+                <button className='btn-image' onClick={prevImage}><MdNavigateBefore size={20}/></button>
+                <button  className='btn-image' onClick={nextImage}><MdNavigateNext size={20}/></button>
+            </div>
+            <div>
+                {indexImage+1}/{images.length}
             </div>
             <div className='card-content'>
                 <div className='card-title'>

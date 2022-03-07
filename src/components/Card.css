@@ -150,4 +150,17 @@ a{
     text-decoration: none;
     font-weight: bold;
 }
+.btn-image{
+    background: none;
+    border: none;
+}
+.btn-images{
+    position: relative;
+    bottom:30px;
+    left: 40%;
+    right:70%;
+    background: none;
+    border: none;
+
+}
 

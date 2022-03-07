@@ -20,7 +20,7 @@ function App() {
         newOrOld='Usato'
         priceDiscount='€3.299,00'
         price='€3.299,00'
-        imageUrl={images}
+        images={images}
         body='Una bici elettrica ideale per andare al lavoro o per godersi le caratteristiche stradine di campagna' />
     </div>
   );

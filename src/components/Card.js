@@ -28,15 +28,15 @@ function Card({ title, year, size, priceDiscount, rating, newOrOld, numReview, p
             <div className='card-header'>
                 <div className='like'>
                 {(!heartClicked && 
-                <AiOutlineHeart onClick={() => setHeartClicked(true)}/>)
+                <button className='likeButton' onClick={() => setHeartClicked(true)}><AiOutlineHeart size={20}/></button>)
                  || 
-                (heartClicked && <AiFillHeart onClick={()=>setHeartClicked(false)}/>)}
+                (heartClicked && <button className='likeButton' onClick={()=>setHeartClicked(false)}><AiFillHeart size={20} /></button>)}
                 </div>
-                {(newOrOld === 'Usato' &&
+                {(newOrOld === 'USATO' &&
                 <div className='old'>
                     {newOrOld}
                 </div>)
-                 || (newOrOld === 'Nuovo' && <div className='new'>
+                 || (newOrOld === 'NUOVO' && <div className='new'>
                     {newOrOld}
                 </div>)}
             </div>
@@ -44,11 +44,17 @@ function Card({ title, year, size, priceDiscount, rating, newOrOld, numReview, p
                 <img src={images[indexImage]} alt='' className='image' />
             </div>
             <div className='btn-images'>
-                <button className='btn-image' onClick={prevImage}><MdNavigateBefore size={20}/></button>
-                <button  className='btn-image' onClick={nextImage}><MdNavigateNext size={20}/></button>
+                <button className='btn-icon' onClick={prevImage}><MdNavigateBefore size={20}/></button>
+                <button className='btn-icon' onClick={nextImage}><MdNavigateNext size={20}/></button>
             </div>
             <div>
-                {indexImage+1}/{images.length}
+                {[...images].map((e, i) => {
+                    if(i===indexImage)
+                        return <div className='slideDisplayed'> </div>
+                    else
+                        return <div className='slide'> </div>
+                    
+                })}
             </div>
             <div className='card-content'>
                 <div className='card-title'>

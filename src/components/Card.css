@@ -13,24 +13,34 @@
     margin-left: 10px;
     margin-top:10px;
     width: 100%;
+
+}
+.likeButton{
+    background: none;
+    border: none;
 }
 .old{
     margin-left: auto;
-    margin-top:10px;
     margin-right: 10px;
     font-weight: 600;
-    font-style: italic;
-    background-color: #ffb001;
-    padding: 3px;
+    font-size: 10px;
+    height: 0;
+    width: 1px;
+    border-top: 17px solid #ffb001;
+    border-bottom: 12px solid transparent;
+    border-right: 30px solid #ffb001;
 }
+
 .new{
     margin-left: auto;
-    margin-top:10px;
     margin-right: 10px;
     font-weight: 600;
-    font-style: italic;
-    background-color: #1B9CFC;
-    padding: 3px;
+    font-size: 10px;
+    height: 0;
+    width: 1px;
+    border-top: 17px solid #1B9CFC;
+    border-bottom: 12px solid transparent;
+    border-right: 30px solid #1B9CFC;
 }
 .card-container:hover{
     transform: scale(1.1);
@@ -150,7 +160,7 @@ a{
     text-decoration: none;
     font-weight: bold;
 }
-.btn-image{
+.btn-icon{
     background: none;
     border: none;
 }
@@ -162,5 +172,25 @@ a{
     background: none;
     border: none;
 
+}
+.slideDisplayed{
+    border: 1px solid #ccc;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    align-items: stretch;
+    background-color: #646464;
+    align-content: stretch
+}
+
+.slide{
+    border: 1px solid #ccc;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    align-items: stretch;
+    align-content: stretch
 }
 

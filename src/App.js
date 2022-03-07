@@ -17,7 +17,7 @@ function App() {
         colors='+4'
         rating='3'
         numReview='8560'
-        newOrOld='Usato'
+        newOrOld='USATO'
         priceDiscount='€3.299,00'
         price='€3.299,00'
         images={images}

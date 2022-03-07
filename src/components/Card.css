@@ -1,10 +1,37 @@
 .card-container{
     width: 300px;
     overflow: hidden;
-    box-shadow: 0px 0px 15px -5px;
+    box-shadow: 0px 0px 15px -10px;
+    border-radius: 10px;
     transition: 0.3s;
+    animation: ease-in;
 }
-
+.card-header{
+    display: flex;
+}
+.like{
+    margin-left: 10px;
+    margin-top:10px;
+    width: 100%;
+}
+.old{
+    margin-left: auto;
+    margin-top:10px;
+    margin-right: 10px;
+    font-weight: 600;
+    font-style: italic;
+    background-color: #ffb001;
+    padding: 3px;
+}
+.new{
+    margin-left: auto;
+    margin-top:10px;
+    margin-right: 10px;
+    font-weight: 600;
+    font-style: italic;
+    background-color: #1B9CFC;
+    padding: 3px;
+}
 .card-container:hover{
     transform: scale(1.1);
     box-shadow: 0px 0px 14px 0px;
@@ -13,3 +40,114 @@
     overflow: hidden;
     height: 200px;
 }
+.image-container{
+    display: flex;
+    justify-content: center;
+}
+
+.card-content{
+    margin: 1rem;
+    margin-top: 0.5rem;
+}
+h3,p{
+    margin: 0;
+    padding: 0;
+}
+.card-title{
+    margin-bottom: 0.5rem;
+    font-size: 19px;
+    font-style: italic;
+}
+.text-review{
+    font-weight: 600;
+    margin-left: 10px;
+}
+.card-brand{
+    margin-bottom: 0.2rem;
+    font-size: 10px;
+    display: flex;
+}
+.rating{
+    margin-left: auto;
+}
+
+.type-bike{
+    color: #e2e2e2;
+}
+.size-title{
+    color:#a1a1a1;
+}
+.description{
+    font-size:12px;
+    font-style: italic;
+    margin-bottom: 25px;
+}
+.card-type{
+    background-color: #646464;
+    padding: 4px;
+    color: white;
+    font-size: 12px;
+    font-style: italic;
+    font-weight: 500;
+    width: 90px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+.card-size-bike{
+    background-color: rgba(246,246,246,255);
+    padding: 4px;
+    color: #646464;
+    font-size: 13px;
+    font-style: italic;
+    font-weight: 500;
+    width: 100px;
+
+    margin-bottom: 2px;
+}
+.card-colors-bike{
+    background-color: rgba(246,246,246,255);
+    padding: 4px;
+    color: #646464;
+    font-size: 13px;
+    font-style: italic;
+    font-weight: 500;
+    width: 70px;
+    margin-bottom: 20px;
+}
+.card-price-bike{
+    font-weight: 600;
+}
+.price{
+    text-decoration: line-through;
+    font-weight: 400;
+    font-size: 12px;
+    margin: 3px;
+}
+.card-bottom{
+    display: flex;
+}
+.btn{
+    background: #131313;
+    color: white;
+    padding: 12px;
+    font-style: italic;
+    font-weight: 500;
+    border: none;
+    margin-left: 100px;
+}
+.checkbox{
+    margin:10px;
+    font-size: 14px;
+    font-weight: 600;
+    margin: 10px;
+}
+.box{
+    border-radius: 30px;
+}
+a{
+    text-transform: uppercase;
+    color: #1B9CFC;
+    text-decoration: none;
+    font-weight: bold;
+}
+

@@ -1,9 +1,10 @@
 import { render, screen, fireEvent} from '@testing-library/react';
-import { IntlProvider } from 'react-intl';
+import { I18nProvider } from '../i18n';
 import { LOCALES } from '../i18n';
 import Card from './Card'
 
 const data =     {
+  id: 1,
   brand: 'CANNONDALE',
   year: '2019',
   title: 'ADVENTURE NEO 1 EQ',
@@ -19,25 +20,25 @@ const data =     {
 }
 
 test('renders correctly', () => {
-  render(<IntlProvider locale={LOCALES.ITALIAN}><Card data={data}/></IntlProvider>);
+  render(<I18nProvider locale={LOCALES.ITALIAN}><Card data={data}/></I18nProvider>);
 });
 
 test('like clicked', () => {
-  render(<IntlProvider locale={LOCALES.ITALIAN}><Card data={data}/></IntlProvider>);
+  render(<I18nProvider locale={LOCALES.ITALIAN}><Card data={data}/></I18nProvider>);
   const unlike = screen.getByTestId('unlike');
   fireEvent.click(unlike);
   expect(screen.getByTestId('like')).toBeInTheDocument();
 });
 
 test('next-image index increment', () => {
-  render(<IntlProvider locale={LOCALES.ITALIAN}><Card data={data}/></IntlProvider>);
+  render(<I18nProvider locale={LOCALES.ITALIAN}><Card data={data}/></I18nProvider>);
   const next = screen.getByTestId('next-image');
   fireEvent.click(next);
   expect(screen.getByTestId('index-slider').textContent).toBe("1");
 });
 
 test('prev-image index decrement', () => {
-  render(<IntlProvider locale={LOCALES.ITALIAN}><Card data={data}/></IntlProvider>);
+  render(<I18nProvider locale={LOCALES.ITALIAN}><Card data={data}/></I18nProvider>);
   const prev = screen.getByTestId('prev-image');
   fireEvent.click(prev);
   expect(screen.getByTestId('index-slider').textContent).toBe(String(data.images.length-1));

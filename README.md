@@ -1,6 +1,7 @@
 This is a small project that I did for a job interview.
 It's a Card Component for selling bikes. 
 
+https://github.com/tomm1998/Component-Card/issues/1#issue-1166810706
 
 
 

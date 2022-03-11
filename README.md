@@ -1,4 +1,4 @@
-This is a small project that I did for a job interview.
+This is a simple project that I did for a job interview.
 It's a Card Component for selling bikes. 
 
 ![ScreenShot](https://user-images.githubusercontent.com/52042213/157950331-b669edeb-9da0-41ff-8729-31f8e0d5622b.jpeg)

@@ -1,5 +1,6 @@
 import { render, screen, fireEvent} from '@testing-library/react';
-import App from '../App';
+import { IntlProvider } from 'react-intl';
+import { LOCALES } from '../i18n';
 import Card from './Card'
 
 const data =     {
@@ -18,25 +19,25 @@ const data =     {
 }
 
 test('renders correctly', () => {
-  render(<Card data={data}/>);
+  render(<IntlProvider locale={LOCALES.ITALIAN}><Card data={data}/></IntlProvider>);
 });
 
 test('like clicked', () => {
-  render(<Card data={data}/>);
+  render(<IntlProvider locale={LOCALES.ITALIAN}><Card data={data}/></IntlProvider>);
   const unlike = screen.getByTestId('unlike');
   fireEvent.click(unlike);
   expect(screen.getByTestId('like')).toBeInTheDocument();
 });
 
 test('next-image index increment', () => {
-  render(<Card data={data}/>);
+  render(<IntlProvider locale={LOCALES.ITALIAN}><Card data={data}/></IntlProvider>);
   const next = screen.getByTestId('next-image');
   fireEvent.click(next);
   expect(screen.getByTestId('index-slider').textContent).toBe("1");
 });
 
 test('prev-image index decrement', () => {
-  render(<Card data={data}/>);
+  render(<IntlProvider locale={LOCALES.ITALIAN}><Card data={data}/></IntlProvider>);
   const prev = screen.getByTestId('prev-image');
   fireEvent.click(prev);
   expect(screen.getByTestId('index-slider').textContent).toBe(String(data.images.length-1));

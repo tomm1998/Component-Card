@@ -4,91 +4,90 @@ import Rating from 'react-rating'
 import { AiOutlineHeart, AiFillHeart} from 'react-icons/ai'
 import { IoIosStarOutline, IoIosStar } from 'react-icons/io'
 import { MdArrowRightAlt, MdNavigateNext, MdNavigateBefore} from 'react-icons/md'
+import translate from '../i18n/translate'
 
-function Card({ title, year, size, priceDiscount, rating, newOrOld, numReview, price, colors, type, brand, images, body }) {
-    //da fare lo slider delle immagini
-
+function Card(props) {
+    const data = props.data;
     const [heartClicked, setHeartClicked] = useState(false);
     const [indexImage, setIndexImage] = useState(0);
 
     const nextImage = () => {
-        if(images[indexImage+1]!=null)
-            setIndexImage(indexImage+1)
+        if(data.images[indexImage + 1]!=null)
+            setIndexImage(indexImage + 1)
         else
             setIndexImage(0);   
     }
     const prevImage = () =>{
-        if(images[indexImage-1]!=null)
-            setIndexImage(indexImage-1)
+        if(data.images[indexImage - 1]!=null)
+            setIndexImage(indexImage - 1)
         else
-            setIndexImage(images.length - 1);
+            setIndexImage(data.images.length - 1);
     }
     return (
         <div className='card-container'>
             <div className='card-header'>
                 <div className='like'>
                 {(!heartClicked && 
-                <button className='likeButton' onClick={() => setHeartClicked(true)}><AiOutlineHeart size={20}/></button>)
+                <button data-testid='unlike' className='likeButton' onClick={() => setHeartClicked(true)}><AiOutlineHeart size={20}/></button>)
                  || 
-                (heartClicked && <button className='likeButton' onClick={()=>setHeartClicked(false)}><AiFillHeart size={20} /></button>)}
+                (heartClicked && <button data-testid='like' className='likeButton' onClick={() => setHeartClicked(false)}><AiFillHeart size={20} /></button>)}
                 </div>
-                {(newOrOld === 'USATO' &&
-                <div className='old'>
-                    {newOrOld}
+                {(data.newOrUsed === 'USATO' &&
+                <div className='used'>
+                    {translate("used")}
                 </div>)
-                 || (newOrOld === 'NUOVO' && <div className='new'>
-                    {newOrOld}
+                 || (data.newOrUsed === 'NUOVO' && <div className='new'>
+                    {translate("new")}
                 </div>)}
             </div>
             <div className='image-container'>
-                <img src={images[indexImage]} alt='' className='image' />
+                <img data-testid='image' src={data.images[indexImage]} alt='' className='image' />
             </div>
             <div className='btn-images'>
-                <button className='btn-icon' onClick={prevImage}><MdNavigateBefore size={20}/></button>
-                <button className='btn-icon' onClick={nextImage}><MdNavigateNext size={20}/></button>
+                <button className='btn-icon' data-testid='prev-image' onClick={prevImage}><MdNavigateBefore size={20}/></button>
+                <button className='btn-icon' data-testid='next-image' onClick={nextImage}><MdNavigateNext size={20}/></button>
             </div>
-            <div>
-                {[...images].map((e, i) => {
-                    if(i===indexImage)
-                        return <div className='slideDisplayed'> </div>
-                    else
-                        return <div className='slide'> </div>
-                    
+            <div className='flexbox'>
+                {[...data.images].map((elem, index) => {
+                    if(index === indexImage)
+                        return <div key={index} data-testid='index-slider' className='slideDisplayed'><span className='indexImage'>{index}</span></div>
+                    else    
+                        return <div key={index} className='slide'></div>            
                 })}
             </div>
             <div className='card-content'>
                 <div className='card-title'>
                     <div className='card-brand'>
-                        <h3>{brand} | {year}</h3>
+                        <h3>{data.brand} | {data.year}</h3>
                         <div className='rating'>
                             <Rating
-                                initialRating={rating}
+                                initialRating={data.reviews.reduce((total, next) => total + next.rating, 0) / data.reviews.length}
                                 emptySymbol={<IoIosStarOutline/>}
                                 fullSymbol={<IoIosStar/>}
                             />
-                            <span className='text-review'>{numReview}</span>
+                            <span className='text-review'>{data.reviews.length}</span>
                         </div>
                     </div>
                     <div>
-                        <h3>{title}</h3>
+                        <h3>{data.title}</h3>
                     </div>
                 </div>
                 <div className='card-body'>
                     <div className='description'>
-                        <p>{body}</p>
+                        <p>{translate("description"+data.id)}</p>
                     </div>
                     <div className='card-type'>
-                        <p><span className='type-bike'>E-BIKE </span>{type}</p>
+                        <p><span className='type-bike'>E-BIKE </span>{translate("type"+data.id)}</p>
                     </div>
                     <div className='card-size-bike'>
-                        <p><span className='size-title'> TAGLIA </span> {size}</p>
+                        <p><span className='size-title'> {translate("size")} </span> {data.size}</p>
                     </div>
                     <div className='card-colors-bike'>
-                        <p><span className='size-title'>COLORI</span>  {colors}</p>
+                        <p><span className='size-title'>{translate("colours")}</span> +{data.colors.length}</p>
                     </div>
                     <div className='card-price-bike'>
-                        <span>{priceDiscount}</span>
-                        <span className='price'>{price}</span>
+                        <span>€{data.discount}</span>
+                        <span className='price'>€{data.price}</span>
                     </div>
                 </div>
             </div>
@@ -96,12 +95,12 @@ function Card({ title, year, size, priceDiscount, rating, newOrOld, numReview, p
                 <div className='checkbox'>
                     <label>
                         <input type="checkbox" className='box' />
-                        COMPARA
+                        {translate('compare')}
                     </label>
                 </div>
-                <div className=''>
-                    <button className='btn'>
-                        SCOPRI <MdArrowRightAlt />
+                <div className='div-btn'>
+                    <button className='btn' onClick={()=> console.log("prova")}>
+                    {translate('findout')} <MdArrowRightAlt />
                     </button>
                 </div>
             </div>

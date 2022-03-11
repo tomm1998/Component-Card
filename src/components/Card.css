@@ -1,10 +1,10 @@
 .card-container{
-    width: 300px;
+    width: 340px;
     overflow: hidden;
     box-shadow: 0px 0px 15px -10px;
-    border-radius: 10px;
     transition: 0.3s;
     animation: ease-in;
+    margin:40px;
 }
 .card-header{
     display: flex;
@@ -19,28 +19,36 @@
     background: none;
     border: none;
 }
-.old{
+.indexImage{
+    display: none;
+}
+.used{
     margin-left: auto;
     margin-right: 10px;
-    font-weight: 600;
-    font-size: 10px;
+    font-weight: 700;
+    font-style: italic;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #333333;
+    font-size: 9px;
     height: 0;
-    width: 1px;
-    border-top: 17px solid #ffb001;
-    border-bottom: 12px solid transparent;
-    border-right: 30px solid #ffb001;
+    width: 0;
+    border-top: 18px solid #ffb001;
+    border-bottom: 10px solid transparent;
+    border-right: 28px solid #ffb001;
 }
-
 .new{
     margin-left: auto;
     margin-right: 10px;
-    font-weight: 600;
-    font-size: 10px;
+    font-weight: 700;
+    font-style: italic;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #333333;
+    font-size: 9px;
     height: 0;
-    width: 1px;
-    border-top: 17px solid #1B9CFC;
-    border-bottom: 12px solid transparent;
-    border-right: 30px solid #1B9CFC;
+    width: 0;
+    border-top: 18px solid #1B9CFC;
+    border-bottom: 10px solid transparent;
+    border-right: 28px solid #1B9CFC;
 }
 .card-container:hover{
     transform: scale(1.1);
@@ -80,7 +88,6 @@ h3,p{
 .rating{
     margin-left: auto;
 }
-
 .type-bike{
     color: #e2e2e2;
 }
@@ -121,7 +128,7 @@ h3,p{
     font-size: 13px;
     font-style: italic;
     font-weight: 500;
-    width: 70px;
+    width: 80px;
     margin-bottom: 20px;
 }
 .card-price-bike{
@@ -136,6 +143,9 @@ h3,p{
 .card-bottom{
     display: flex;
 }
+.div-btn{
+    margin-left: auto;
+}
 .btn{
     background: #131313;
     color: white;
@@ -143,7 +153,6 @@ h3,p{
     font-style: italic;
     font-weight: 500;
     border: none;
-    margin-left: 100px;
 }
 .checkbox{
     margin:10px;
@@ -174,23 +183,15 @@ a{
 
 }
 .slideDisplayed{
-    border: 1px solid #ccc;
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    flex-wrap: nowrap;
-    align-items: stretch;
     background-color: #646464;
-    align-content: stretch
+    width: 100%;
 }
-
 .slide{
+    background-color: white;
     border: 1px solid #ccc;
+    width: 100%;
+}
+.flexbox{
     display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    flex-wrap: nowrap;
-    align-items: stretch;
-    align-content: stretch
 }
 

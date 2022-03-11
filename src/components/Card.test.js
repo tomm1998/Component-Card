@@ -1,6 +1,6 @@
 import { render, screen, fireEvent} from '@testing-library/react';
-import App from './App';
-import Card from './components/Card'
+import App from '../App';
+import Card from './Card'
 
 const data =     {
   brand: 'CANNONDALE',

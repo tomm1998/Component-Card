@@ -9,10 +9,10 @@ function App() {
   const [locale, setLocale] = useState(LOCALES.ENGLISH);
   return (
     <I18nProvider locale={locale}>
-      <button className='changeLanguage' onClick={() => setLocale(LOCALES.ITALIAN)}>Italiano</button>
-      <button className='changeLanguage' onClick={() => setLocale(LOCALES.ENGLISH)}>English</button>
+      <button className='changeLanguage' onClick={() => setLocale(LOCALES.ITALIAN)}>Italian</button>
+      <button className='changeLanguage' onClick={() => setLocale(LOCALES.ITALIAN)}>English</button>
       <div className="App">
-        {[...data].map((elem,index)=>{
+        {data.map((elem,index)=>{
           return (
           <Card
           key={index}
@@ -23,4 +23,5 @@ function App() {
     </I18nProvider>
   );
 }
+
 export default App;

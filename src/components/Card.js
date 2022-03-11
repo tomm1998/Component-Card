@@ -48,7 +48,7 @@ function Card(props) {
                 <button className='btn-icon' data-testid='next-image' onClick={nextImage}><MdNavigateNext size={20}/></button>
             </div>
             <div className='flexbox'>
-                {[...data.images].map((elem, index) => {
+                {data.images.map((elem, index) => {
                     if(index === indexImage)
                         return <div key={index} data-testid='index-slider' className='slideDisplayed'><span className='indexImage'>{index}</span></div>
                     else    
